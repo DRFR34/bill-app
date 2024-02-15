@@ -4,23 +4,34 @@ import LoadingPage from "./LoadingPage.js"
 
 import Actions from './Actions.js'
 
+  //== Bug 1 (fix 1/2) :  convert date in french display , and add an anti-chronologic sorting
 const row = (bill) => {
+  const date = new Date(bill.date)
+
+  //* convert the dates in french format
+  .toLocaleDateString('fr-FR');
+
   return (`
     <tr>
       <td>${bill.type}</td>
       <td>${bill.name}</td>
-      <td>${bill.date}</td>
+      <td>${date}</td>
       <td>${bill.amount} €</td>
       <td>${bill.status}</td>
       <td>
         ${Actions(bill.fileUrl)}
       </td>
     </tr>
-    `)
-  }
-
+  `)
+}
+ 
 const rows = (data) => {
-  return (data && data.length) ? data.map(bill => row(bill)).join("") : ""
+  return (data && data.length) ? data
+
+  //* add an anti-chronologic sorting
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
+
+  .map(bill => row(bill)).join("") : ""
 }
 
 export default ({ data: bills, loading, error }) => {
