@@ -41,6 +41,7 @@ export default class Login {
     e.preventDefault()
     const user = {
       type: "Admin",
+      //== Fixing BUG 2: replace 2 input[data-testid...] with appropriate content ( "admin-..."" replace "employee-..."")
       email: e.target.querySelector(`input[data-testid="admin-email-input"]`).value,
       password: e.target.querySelector(`input[data-testid="admin-password-input"]`).value,
       status: "connected"
