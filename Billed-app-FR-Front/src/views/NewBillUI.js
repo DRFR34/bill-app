@@ -1,5 +1,6 @@
 import VerticalLayout from './VerticalLayout.js'
 
+//== Fixing BUG 3 (L58 -62 ): and  file type infos in label + add "accept" attribute + add error message in a span 
 export default () => {
 
   return (`
@@ -53,10 +54,13 @@ export default () => {
                     <label for="commentary" class="bold-label">Commentaire</label>
                     <textarea class="form-control blue-border" data-testid="commentary" rows="3"></textarea>
                   </div>
+
                   <div class="col-half">
-                    <label for="file" class="bold-label">Justificatif</label>
-                    <input required type="file" class="form-control blue-border" data-testid="file" />
+                    <label for="file" class="bold-label">Justificatif (formats acceptés: .jpg, .jpeg, .png)</label>
+                    <input required type="file" accept=".jpg, .jpeg, .png" class="form-control blue-border" data-testid="file" />
+                    <span id="wrongFileTypeErrorMsg" data-testid="error-message">Seuls les formats : jpg , jpeg et png sont acceptés</span>
                   </div>
+
                 </div>
             </div>
             <div class="row">
