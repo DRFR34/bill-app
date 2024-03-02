@@ -8,11 +8,7 @@
 
   
   //== Bug 1 (fix 2/2): change previous dateStr to an ISO date  object, and split it to return only the year, month, and day
-  /**
-   * 
-   * @param {string} dateIso 
-   * @returns 
-   */
+
   export const formatDate = (dateIso) => {
    const date = new Date(dateIso);  
   
