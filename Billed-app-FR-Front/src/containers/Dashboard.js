@@ -153,18 +153,18 @@ export default class {
     }
     //== Original code with console for debugging
     
-    // bills.forEach(bill => {
-    //   $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+    bills.forEach(bill => {
+      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
 
-    //   console.log("new listener on the bill : ",bill.id );
-    //   sumOfListeners +=1;
-    //   console.log("Sum of Listeners", sumOfListeners);
-    // })
+      console.log("new listener on the bill : ",bill.id );
+      sumOfListeners +=1;
+      console.log("Sum of Listeners", sumOfListeners);
+    })
 
     //== Fixing BUG 4 : delete eventual existing listeners before add a new one
-     bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).off('click').click((e) => this.handleEditTicket(e, bill, bills))
-    })
+    //  bills.forEach(bill => {
+    //   $(`#open-bill${bill.id}`).off('click').click((e) => this.handleEditTicket(e, bill, bills))
+    // })
     return bills
     
   }
