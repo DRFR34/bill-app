@@ -60,16 +60,17 @@ describe("Given I am connected as an employee", () => {
     });
 
     //* test 1
-    test("Then the div containing the text 'Envoyer une note de frais' is available", async () => {
-      const pageTitleTested = await screen.getByText("Envoyer une note de frais");
-      const formNewBillTested = await screen.getByTestId("form-new-bill");
+    // test("Then the div containing the text 'Envoyer une note de frais' is available", async () => {
+    test("Then the div containing the text 'Envoyer une note de frais' is available", () => {
+      const pageTitleTested =  screen.getByText("Envoyer une note de frais");
+      const formNewBillTested = screen.getByTestId("form-new-bill");
       expect(pageTitleTested).toBeVisible();
       expect(formNewBillTested).toBeDefined();
     });
 
     //* test 2
-    test("Then mail icon in vertical layout should be highlighted", async () => {
-      const mailIconTested  = await screen.getByTestId("icon-mail");
+    test("Then mail icon in vertical layout should be highlighted", () => {
+      const mailIconTested  = screen.getByTestId("icon-mail");
       expect(mailIconTested ).toBeVisible();
     });
 
