@@ -66,9 +66,6 @@ export const getStatus = (index) => {
       return "refused"
   }
 }
-
-//== var created for debugging
-let sumOfListeners = 0;
 export default class {
   constructor({ document, onNavigate, store, bills, localStorage }) {
     this.document = document
@@ -88,9 +85,6 @@ export default class {
   }
 
   handleEditTicket(e, bill, bills) {
-
-    //== BUG 4 : add console for debug
-    console.log("handleEditTicket is called");
 
     if (this.counter === undefined || this.id !== bill.id) this.counter = 0
     if (this.id === undefined || this.id !== bill.id) this.id = bill.id
@@ -151,15 +145,6 @@ export default class {
         .html("")
       this.counter ++
     }
-    //== Original code with console for debugging
-    
-    // bills.forEach(bill => {
-    //   $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
-
-    //   console.log("new listener on the bill : ",bill.id );
-    //   sumOfListeners +=1;
-    //   console.log("Sum of Listeners", sumOfListeners);
-    // })
 
     //== Fixing BUG 4 : delete eventual existing listeners before add a new one
      bills.forEach(bill => {
