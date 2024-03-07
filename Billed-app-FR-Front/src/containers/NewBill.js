@@ -28,7 +28,7 @@ export default class NewBill {
     //== BUG 3 (2/3): Get the file extension display error and disable if wrong type 
       
     const extension = fileName.substring(fileName.lastIndexOf("."));
-    let wrongFileTypeErrorMsg = document.querySelector('#wrongFileTypeErrorMsg');
+    const wrongFileTypeErrorMsg = document.querySelector('#wrongFileTypeErrorMsg');
     wrongFileTypeErrorMsg.style.display = "none";
 
     const button = document.getElementById("btn-send-bill");
