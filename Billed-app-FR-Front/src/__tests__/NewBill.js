@@ -3,17 +3,17 @@
  */
 
 // libraries
-import "@testing-library/jest-dom"; //! added
-import { fireEvent, screen } from "@testing-library/dom";//! added
+import "@testing-library/jest-dom"; 
+import { fireEvent, screen } from "@testing-library/dom";
 
 // Mocks
-import { localStorageMock } from "../__mocks__/localStorage.js";//! added
-import mockedBillsStore from "../__mocks__/store";//! added
+import { localStorageMock } from "../__mocks__/localStorage.js";
+import mockedBillsStore from "../__mocks__/store";
 
 // internal components
 import NewBill from "../containers/NewBill.js";
-import { ROUTES_PATH } from "../constants/routes";//! added
-import router from "../app/Router";//! added
+import { ROUTES_PATH } from "../constants/routes";
+import router from "../app/Router";
 
 // Mocked data
 jest.mock("../app/store", () => mockedBillsStore);
@@ -60,7 +60,7 @@ describe("Given I am connected as an employee", () => {
 
 
     //* test 1
-    test("Then the div containing the text 'Envoyer une note de frais' is available", () => {
+    test("Then the title 'Envoyer une note de frais', and the form are available", () => {
       const pageTitleTested = screen.getByText("Envoyer une note de frais");
       const formNewBillTested = screen.getByTestId("form-new-bill");
       expect(pageTitleTested).toBeVisible();
@@ -95,7 +95,7 @@ describe("Given I am connected as an employee", () => {
       expect(newBillFormTested).toBeDefined();
     });
 
-    describe("when the user load a file with the wrong format", () => {
+    describe("when I load a file with the wrong format", () => {
 
       //* test 5
       test("Then the error message should be displayed, and the submit button should be disabled", () => {
